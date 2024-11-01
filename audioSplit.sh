@@ -1,4 +1,6 @@
 #!/bin/bash
+# version 2024-11-01
+
 
 show_error() {
     yad --title "Error" --text "$1" --button "OK"
