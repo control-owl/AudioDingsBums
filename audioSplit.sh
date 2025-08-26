@@ -1,6 +1,6 @@
 #!/bin/bash
-# version 2024-11-01
-
+# version 2025-08-26
+# Special thanks to: Joan CiberSheep
 
 show_error() {
     yad --title "Error" --text "$1" --button "OK"
@@ -101,8 +101,7 @@ for line in "${chapters[@]}"; do
     echo "output_file: $output_file"
 
 
-    ffmpeg -ss "$start_time" -i "$input_m4b_file" -to "$end_time" -map 0:a -c:a libmp3lame "$output_file"
-    
+    ffmpeg -ss "$start_time" -to "$end_time" -i "$input_m4b_file" -map 0:a -c:a libmp3lame "$output_file"
 
     if [[ $? -ne 0 ]]; then
         echo "Error: Failed to convert $output_file"
